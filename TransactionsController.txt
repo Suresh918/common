@@ -1,0 +1,59 @@
+// Create the controller TransactionsController with saveTransaction function which saves the transaction details to transactions details(array is provided in the question itself)
+
+(function() {
+    // 'use strict';
+    
+var appContr = angular.module('abcbankApp.transaction', []);
+    appContr.controller('TransactionsController', function($scope) {
+        
+    var TxnCtrl = this;
+    TxnCtrl.newTxn={};
+    
+    TxnCtrl.transactions =  [{
+     amount: 100.00,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Deposit',
+     type: 'credit'
+ }, {
+     amount: 50.00,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Best Buy',
+     type: 'debit'
+ }, {
+     amount: 25.26,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Olive Garden',
+     type: 'debit'
+ }, {
+     amount: 100.00,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Deposit',
+     type: 'credit'
+ }, {
+     amount: 35.15,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'McPee\'s',
+     type: 'debit'
+ }, {
+     amount: 16.25,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'QT205',
+     type: 'debit'
+ }];
+ 
+ TxnCtrl.saveTransaction = function(txn){
+     TxnCtrl.transactions.push(txn);
+ };
+ 
+});
+
+
+})();
+
+

@@ -1,0 +1,17 @@
+ // Create the controller AccountSummaryController with getAccountSummary function that access accountSummaryService which is already defined in account-summary.service.js. Use $state for Transition from one page to another.
+
+(function() {
+    'use strict';
+   var appContr = angular.module('abcbankApp.accountSummary', ['abcbankApp.accountSummaryService']);
+    appContr.controller('AccontSummaryController', function($scope,AccountSummaryService,$state) {
+    var ActSumCtrl = this;
+    ActSumCtrl.accountList = [];
+    ActSumCtrl.accountList = AccountSummaryService.getAccountSummary();
+    });
+
+})();
+
+
+
+
+

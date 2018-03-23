@@ -1,0 +1,21 @@
+// Create the service AccountSummaryService with getAccountSummary function which should return the account details from data/account-summary.json using $http.get.
+
+(function() {
+    'use strict';
+    
+     var appServc = angular.module('abcbankApp.accountSummaryService', []);
+appServc.factory('AccountSummaryService', ['$http',
+  function($http) {
+    return {
+      getAccountSummary: function() {
+          var data;
+          $http.get('./data/account-summary.json')
+         .success(function(response) {
+           data = response.data;
+        });
+        return data;
+      }
+    };
+  }]);
+  
+})();

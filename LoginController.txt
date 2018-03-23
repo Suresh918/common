@@ -1,0 +1,29 @@
+// Create the controller LoginController with login function which access authenticationService which is already defined in authentication.service.js
+
+// the login function should check the response from the authenticationService and if it is yes/true it should navigate to account-summary page.
+
+(function() {
+    'use strict';
+    
+    var appContr = angular.module('abcbankApp.login', ['abcbankApp.authenticationService']);
+    appContr.controller('LoginController', function($scope,AuthenticationService,$state) {
+    var LoginCtrl = this;
+    LoginCtrl.username = "";
+    LoginCtrl.password = "";
+    LoginCtrl.errorMsg = "";
+    LoginCtrl.error = false;
+    LoginCtrl.login = function(){
+     var response = AuthenticationService.login(LoginCtrl.username,LoginCtrl.password);
+     if(!response.success){
+         LoginCtrl.errorMsg = response.message;
+     }else{
+        $state.go("accountSummary");
+     }
+    };
+});
+
+
+})();
+
+
+

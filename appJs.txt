@@ -1,0 +1,47 @@
+(function() {
+    'use strict';
+
+    // CONTROLLERS
+    angular
+        .module('abcbankApp.controllers', []);
+
+    // SERVICES
+    angular
+        .module('abcbankApp.services', []);
+
+    angular
+        .module('abcbankApp', ['ui.router', 'ui.grid', 'abcbankApp.accountSummary', 'abcbankApp.transaction', 'abcbankApp.login'])
+        .config(routeConfig);
+
+
+    function routeConfig($stateProvider,$urlRouterProvider) {
+       $urlRouterProvider.when("", "/login");
+        // ROUTES
+        // Please use State provoders for routing between login,accountSummary, transactions and search
+        // define  $stateProvider(state) with url,templateUrl,controllers and controllerAs
+         $stateProvider
+        .state("login", {
+            url: "/login",
+            templateUrl: "./templates/login/login.view.html",
+            controller :"LoginController",
+            controllerAs :"LoginCtrl",
+        })
+        .state("accountSummary", {
+            url: "/accountSummary",
+            templateUrl: "./templates/accont-summary/accont-summary.html",
+            controller : "AccontSummaryController",
+            controllerAs :"ActSumCtrl",
+        })
+        .state("transactions", {
+            url: "/transactions",
+            templateUrl: "./templates/transactions/transactions.html",
+            controller :"TransactionsController",
+            controllerAs :"TxnCtrl",
+        })
+         .state("transactions.search", {
+            url: "/transactions",
+            templateUrl: "./templates/search/search.html",
+        })
+    }
+
+})();
